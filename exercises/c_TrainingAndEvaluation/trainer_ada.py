@@ -2,7 +2,7 @@
 from pathlib import Path
 import json
 from sklearn.ensemble import AdaBoostClassifier
-from exercises.d_TrainingAndEvaluation.generic_trainer import train_fraud
+from exercises.c_TrainingAndEvaluation.generic_trainer import train_fraud
 
 # Load DataFrame from dataset 
 try:

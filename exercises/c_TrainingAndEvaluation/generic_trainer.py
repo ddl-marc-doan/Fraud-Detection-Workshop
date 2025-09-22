@@ -35,8 +35,8 @@ domino_working_dir = os.environ.get("DOMINO_WORKING_DIR", ".")
 domino_project_name = os.environ.get("DOMINO_PROJECT_NAME", "my-local-project")
 
 domino_artifact_dir = '/mnt/artifacts'
-domino_datasource_dir = '/domino/datasets/local'
-domino_dataset_dir = f"{domino_datasource_dir}/{domino_project_name}"
+domino_datasource_dir = os.environ.get("DOMINO_DATASETS_DIR","/domino/datasets/")
+domino_dataset_dir = f"{domino_datasource_dir}/local/{domino_project_name}"
 
 ModelArtifact = Artifact(name="Fraud Detection Models", type=MODEL)
 DataArtifact = Artifact(name="Training Data", type=DATA)

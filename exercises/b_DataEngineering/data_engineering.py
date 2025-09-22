@@ -17,7 +17,6 @@ from datetime import datetime
 import pandas as pd
 import numpy as np
 import mlflow
-from domino_data.data_sources import DataSourceClient
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
@@ -45,8 +44,8 @@ dataset_name = os.environ.get(domino_project_name, "Fraud-Detection-Workshop")
 
 # Construct paths for data storage and artifacts
 # In Domino, 'data' directory is for datasets, 'artifacts' for outputs like reports
-domino_datasource_dir = '/domino/datasets/local'
-domino_dataset_dir = f"{domino_datasource_dir}/{domino_project_name}"
+domino_datasource_dir = os.environ.get("DOMINO_DATASETS_DIR","/domino/datasets/")
+domino_dataset_dir = f"{domino_datasource_dir}/local/{domino_project_name}"
 domino_artifact_dir = '/mnt/artifacts'
 clean_path = f"{domino_dataset_dir}/{clean_filename}"
 
