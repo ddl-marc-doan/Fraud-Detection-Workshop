@@ -39,13 +39,19 @@ domino_working_dir = os.environ.get("DOMINO_WORKING_DIR", ".")
 domino_project_name = os.environ.get("DOMINO_PROJECT_NAME", "my-local-project")
 
 # Get project owner and dataset info from environment or use defaults
+domino_username = os.environ.get("DOMINO_USER_NAME")
+is_git_based_project = os.environ.get("DOMINO_IS_GIT_BASED")
 domino_project_owner = os.environ.get("DOMINO_PROJECT_OWNER", os.environ.get("DOMINO_USER_NAME", "default-owner"))
 dataset_name = os.environ.get(domino_project_name, "Fraud-Detection-Workshop")
 
 # Construct paths for data storage and artifacts
 # In Domino, 'data' directory is for datasets, 'artifacts' for outputs like reports
-domino_datasource_dir = os.environ.get("DOMINO_DATASETS_DIR","/domino/datasets/")
-domino_dataset_dir = f"{domino_datasource_dir}/local/{domino_project_name}"
+domino_data_dir = os.environ.get("DOMINO_DATASETS_DIR","/domino/datasets/")
+if is_git_based_project == "true":
+    domino_dataset_dir = f"{domino_data_dir}/{domino_project_name}/{domino_username}"
+else:
+    domino_dataset_dir = f"{domino_data_dir}/local/{domino_project_name}/{domino_username}"
+# domino_dataset_dir = f"{domino_datasource_dir}/local/{domino_project_name}"
 domino_artifact_dir = '/mnt/artifacts'
 clean_path = f"{domino_dataset_dir}/{clean_filename}"
 
