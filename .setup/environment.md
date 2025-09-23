@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends gcc && \
 # Add missing library for uWSGI
 ARG LDFLAGS=-fno-lto
 ENV LDFLAGS=-fno-lto
-ENV PYTHONPATH="${PYTHONPATH}:/mnt/code"
+ENV PYTHONPATH="${PYTHONPATH}:/mnt/code:/mnt"
 
 # Install Flask & uWSGI
 RUN pip install --no-cache-dir Flask Flask-Compress Flask-Cors uwsgi six prometheus-client ydata_profiling streamlit st-pages streamlit-extras altair-saver "nbclient>=0.6.7,<0.7" "nbconvert>=6.5.4,<7" "lxml[html_clean]"
