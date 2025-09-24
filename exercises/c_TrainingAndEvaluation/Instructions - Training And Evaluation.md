@@ -5,9 +5,7 @@ In this phase, we will simultaneously train 3 models, evaluate them, and registe
 
 In the workspace, open the terminal
 
-Run the Flow
-
-Watch the Flow Execution
+Run the job trainer programs
 
 Click "Experiment Manager"  (Main Window, Left-Hand Column)
 
@@ -26,9 +24,6 @@ In governnace
 This concludes the "3. MODEL TRAINING and EVALUATION" section of the workshop.
 
 ## New Domino Concepts
-
-**Domino Flows:**
-> Domino Flows is a visual workflow orchestration tool that allows users to build, schedule, and monitor complex data pipelines by connecting multiple tasks, jobs, and models in a directed acyclic graph (DAG). This enables teams to productionize end-to-end ML workflows with built-in error handling, dependency management, and automatic retries without writing orchestration code.
 
 **Experiment Manager:**
 > Experiment Manager is a centralized tracking system that automatically captures and compares all experiment runs, including parameters, metrics, code versions, and results in a searchable interface. This accelerates model development by enabling data scientists to quickly identify the best-performing models, understand what changes improved performance, and reproduce any past experiment.
