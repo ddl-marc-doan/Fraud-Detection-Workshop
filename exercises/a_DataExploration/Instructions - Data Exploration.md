@@ -16,10 +16,6 @@ In this phase, we will begin the process of exploring a transactional dataset to
 
 5.  Open the Notebook /mnt/code..../.../...
 
-6.  In Data Sources at Left, Copy the Python Snippet
-
-7.  Paste Python Snippett in Cell Where Instructed
-
 8.  Run notebook cells (either manually or automatically)
 
 9.  Review generated MetaData and Plots
@@ -33,9 +29,6 @@ This concludes the "1. Data Exploration" section of the workshop
 ## New Domino Concepts
 **Workspaces:** 
 > A Domino workspace is an interactive session where you can conduct research, analyze data, train models, and more. Use workspaces to work in the development environment of your choice, like Jupyter notebooks, RStudio, VS Code, and many other customizable environments.
-
-**Data Source Connector:** 
-> Managed data connectors that can connect to SQL and file-type stores.  Connectors provide an easy and secure way to connect to external data without drivers or configuration. Direct connections use the same code you would use outside of Domino, with the flexibility to access files or data however you want.
 
 **Domino Dataset:**
 > A Domino Dataset is a versioned, centralized data repository that enables teams to share, track, and manage data assets across projects and experiments. This ensures data consistency and reproducibility while providing governance controls and lineage tracking, eliminating the need for data scientists to manage their own copies of data.
