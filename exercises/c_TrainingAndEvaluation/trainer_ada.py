@@ -1,8 +1,10 @@
 # File: trainer_ada.py
 from pathlib import Path
-import json
+import json,sys
 from sklearn.ensemble import AdaBoostClassifier
+sys.path.append(os.environ["DOMINO_WORKING_DIR"])
 from exercises.c_TrainingAndEvaluation.generic_trainer import train_fraud
+
 
 # Load DataFrame from dataset 
 try:

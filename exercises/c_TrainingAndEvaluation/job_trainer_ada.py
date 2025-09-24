@@ -7,7 +7,7 @@ domino = Domino(
     api_key = os.environ["DOMINO_USER_API_KEY"],
     host = os.environ["DOMINO_API_HOST"],
 )
-hwtier = 'Small'
+hwtier = 'Medium'
 execution = 'exercises/c_TrainingAndEvaluation/trainer_ada.py'
 title = f'Train AdaBoost classifier'
 domino.job_start(execution, title=title, hardware_tier_name=hwtier)

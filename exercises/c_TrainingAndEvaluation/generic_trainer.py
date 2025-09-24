@@ -33,10 +33,16 @@ from flytekitplugins.domino.artifact import Artifact, DATA, MODEL, REPORT
 experiment_name = f"CC Fraud Classifier Training {domino_short_id()}"
 domino_working_dir = os.environ.get("DOMINO_WORKING_DIR", ".")
 domino_project_name = os.environ.get("DOMINO_PROJECT_NAME", "my-local-project")
+domino_username = os.environ.get("DOMINO_USER_NAME")
+is_git_based_project = os.environ.get("DOMINO_IS_GIT_BASED")
 
 domino_artifact_dir = '/mnt/artifacts'
 domino_datasource_dir = os.environ.get("DOMINO_DATASETS_DIR","/domino/datasets/")
-domino_dataset_dir = f"{domino_datasource_dir}/local/{domino_project_name}"
+domino_data_dir = os.environ.get("DOMINO_DATASETS_DIR","/domino/datasets/")
+if is_git_based_project == "true":
+    domino_dataset_dir = f"{domino_data_dir}/{domino_project_name}/{domino_username}"
+else:
+    domino_dataset_dir = f"{domino_data_dir}/local/{domino_project_name}/{domino_username}"
 
 ModelArtifact = Artifact(name="Fraud Detection Models", type=MODEL)
 DataArtifact = Artifact(name="Training Data", type=DATA)
@@ -786,7 +792,7 @@ def train_fraud(model_obj, model_name, transformed_df_filename, random_state=Non
         'val_samples': len(X_val)
     }
     
-    domino_artifacts_path = Path("/workflow/outputs")
+    domino_artifacts_path = Path("/mnt/artifacts")
     domino_artifacts_path.mkdir(exist_ok=True, parents=True)
     
     data_summary_path = domino_artifacts_path / "data_summary.json"
