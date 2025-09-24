@@ -36,16 +36,5 @@ path = "fraud_detection.py"
 name = "Fraud Detection"
 EOF
 
-# Generate and display the Streamlit URL
-if [ -n "${DOMINO_RUN_HOST_PATH:-}" ]; then
-    CLEAN_PATH=$(echo "$DOMINO_RUN_HOST_PATH" | sed 's|/r||g')
-    STREAMLIT_URL="https://metlife.cs.domino.tech${CLEAN_PATH}proxy/${PORT}/"
-    echo "========================================="
-    echo "Streamlit URL: $STREAMLIT_URL"
-    echo "========================================="
-else
-    echo "DOMINO_RUN_HOST_PATH not found - running locally"
-fi
-
 # Run the app
 streamlit run exercises/d_HostingAndExecution/app.py

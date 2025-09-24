@@ -8,14 +8,14 @@ sys.path.append(os.environ["DOMINO_WORKING_DIR"])
 from exercises.b_DataEngineering.data_engineering import add_derived_features
 
 # --- Environment variables for model endpoints ---
-xgboost_endpoint = os.environ['xgboost_endpoint']
-xgboost_auth = os.environ['xgboost_auth']
+xgboost_endpoint = os.environ.get('xgboost_endpoint',None)
+xgboost_auth = os.environ.get('xgboost_auth',None)
 
-adaboost_endpoint = os.environ['adaboost_endpoint']
-adaboost_auth = os.environ['adaboost_auth']
+adaboost_endpoint = os.environ.get('adaboost_endpoint',None)
+adaboost_auth = os.environ.get('adaboost_auth',None)
 
-gaussiannb_endpoint = os.environ['gaussiannb_endpoint']
-gaussiannb_auth = os.environ['gaussiannb_auth']
+gaussiannb_endpoint = os.environ.get('gaussiannb_endpoint',None)
+gaussiannb_auth = os.environ.get('gaussiannb_auth',None)
 
 model_dict = {
     'XG Boost': {
@@ -100,7 +100,7 @@ with col3:
                                 ["grocery", "electronics", "clothing", "entertainment", "travel", "restaurant", "gas", "utilities"])
     channel = st.selectbox("Channel", ["online", "in-store", "contactless", "chip"])
     card_present = st.selectbox("Card Present", [0, 1])
-    selected_model = st.selectbox("Model", ["XG Boost", "ADA Boost", "GaussianNB"])
+    selected_model = st.selectbox("Model", ["XG Boost", "ADA Boost", "GaussianNB"],index=0)
 
 st.markdown("---")
 
