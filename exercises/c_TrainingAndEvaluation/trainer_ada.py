@@ -1,8 +1,8 @@
 # File: trainer_ada.py
 from pathlib import Path
-import json,sys
-from sklearn.ensemble import AdaBoostClassifier
+import json,sys,os
 sys.path.append(os.environ["DOMINO_WORKING_DIR"])
+from sklearn.ensemble import AdaBoostClassifier
 from exercises.c_TrainingAndEvaluation.generic_trainer import train_fraud
 
 
